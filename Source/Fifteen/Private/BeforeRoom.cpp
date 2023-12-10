@@ -9,5 +9,5 @@ void UBeforeRoom::NativeConstruct()
 {
 	gm = Cast<AFifteenGameModeBase>(UGameplayStatics::GetGameMode(this));
 	
-	UUserWidget::OnTouchStarted();
+	//UUserWidget::OnTouchStarted();
 }

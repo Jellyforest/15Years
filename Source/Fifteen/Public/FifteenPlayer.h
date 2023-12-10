@@ -26,4 +26,28 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	UPROPERTY(EditAnywhere, Category = Input)
+	class APlayerController* playerController;
+	//동작
+	UPROPERTY(EditAnywhere, Category=Input)
+	class UInputMappingContext* DefaultMappingContext;
+	UPROPERTY(EditAnywhere, Category=Input)
+	class UInputAction* SetTouchAction;
+	UPROPERTY(EditAnywhere, Category=Input)
+	class UInputAction* SetClickAction;
+
+	// click 효과
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)
+	class UNiagaraSystem* FXClick;
+
+	//처음 13살 방 튜토 위젯
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "BeforeWidget")
+	class UBeforeRoom* beforeWidget;
+
+	//동작
+	void OnTouchTriggered();
+	void OnTouchReleased();
+	float mouseX;
+	float mouseY;
+
 };
