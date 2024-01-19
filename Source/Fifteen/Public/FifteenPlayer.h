@@ -36,6 +36,13 @@ public:
 	UPROPERTY(EditAnywhere, Category=Input)
 	class UInputAction* SetClickAction;
 
+	// 콜리전 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Collision)
+	class USphereComponent* sphereComp;
+	
+	FVector CachedDestination;
+
+
 	// click 효과
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)
 	class UNiagaraSystem* FXClick;

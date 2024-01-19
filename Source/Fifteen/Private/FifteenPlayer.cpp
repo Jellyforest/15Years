@@ -8,6 +8,9 @@
 #include "NiagaraSystem.h"
 #include "NiagaraFunctionLibrary.h"
 #include "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
+#include "Components/SphereComponent.h"
+#include "Blueprint/AIBlueprintHelperLibrary.h"
+
 
 // Sets default values
 AFifteenPlayer::AFifteenPlayer()
@@ -16,6 +19,9 @@ AFifteenPlayer::AFifteenPlayer()
 	PrimaryActorTick.bCanEverTick = true;
 
 	//beforeWidget = CreateDefaultSubobject<UBeforeRoom>(TEXT("beforeWidget"));
+	//ÄÝ¸®Àü
+	sphereComp = CreateDefaultSubobject<USphereComponent>(TEXT("sphereComp"));
+	sphereComp->SetCollisionProfileName(TEXT("PlayerClickPreset"));
 }
 
 // Called when the game starts or when spawned
@@ -68,19 +74,22 @@ void AFifteenPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
 void AFifteenPlayer::OnTouchTriggered()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("touch11"));
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("touch11"));
 	playerController->GetMousePosition(mouseX, mouseY);
 	FVector2D mousePoint(mouseX, mouseY);
 
 	FVector mouseHit(mouseX, mouseY, 0.0f);
 	UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, FXClick, mouseHit, FRotator::ZeroRotator);
-	UE_LOG(LogTemp, Warning, TEXT("Mouse Location: %f, %f, %s"), mouseX, mouseY, *mouseHit.ToString());
+	//UE_LOG(LogTemp, Warning, TEXT("Mouse Location: %f, %f, %s"), mouseX, mouseY, *mouseHit.ToString());
+	
+	UAIBlueprintHelperLibrary::SimpleMoveToLocation(playerController, CachedDestination);
+	sphereComp->SetWorldLocation(CachedDestination, false);
 
 	//AActor* cleanFX = GetWorld()->SpawnActor<ACleaningEffect>(cleaner->cleaningEffect, cleaner->cleanerHeadComp->GetComponentLocation(), cleaner->cleanerHeadComp->GetComponentRotation());
 }
 
 void AFifteenPlayer::OnTouchReleased()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Released11"));
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Released11"));
 
 }

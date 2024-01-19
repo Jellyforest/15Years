@@ -6,6 +6,7 @@
 #include "Templates/SubclassOf.h"
 #include "GameFramework/PlayerController.h"
 #include "InputActionValue.h"
+#include "ClickEffect.h"
 #include "FifteenPlayerController.generated.h"
 
 /** Forward declaration to improve compiling times */
@@ -39,7 +40,15 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
 	class UInputAction* SetDestinationTouchAction;
 
+	//클릭효과
+	//UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)
+	//class AClickEffect* clickEffect;
 	
+	// 콜리전 
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Collision)
+	//class USphereComponent* sphereComp;
+
+
 protected:
 	/** True if the controlled character should navigate to the mouse cursor. */
 	uint32 bMoveToMouseCursor : 1;

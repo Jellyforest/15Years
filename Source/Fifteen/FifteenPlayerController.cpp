@@ -9,6 +9,10 @@
 #include "Engine/World.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+//#include "Components/SphereComponent.h"
+//#include "Kismet/GameplayStatics.h"
+//#include "ClickEffect.h"
+
 
 AFifteenPlayerController::AFifteenPlayerController()
 {
@@ -16,6 +20,10 @@ AFifteenPlayerController::AFifteenPlayerController()
 	DefaultMouseCursor = EMouseCursor::Default;
 	CachedDestination = FVector::ZeroVector;
 	FollowTime = 0.f;
+	//ÄÝ¸®Àü
+	//sphereComp = CreateDefaultSubobject<USphereComponent>(TEXT("sphereComp"));
+	//sphereComp->SetCollisionProfileName(TEXT("PlayerClickPreset"));
+
 }
 
 void AFifteenPlayerController::BeginPlay()
@@ -28,6 +36,9 @@ void AFifteenPlayerController::BeginPlay()
 	{
 		Subsystem->AddMappingContext(DefaultMappingContext, 0);
 	}
+
+	//clickEffect = Cast<AClickEffect>(UGameplayStatics::GetActorOfClass(GetWorld(), AClickEffect::StaticClass()));
+
 }
 
 void AFifteenPlayerController::SetupInputComponent()
@@ -99,9 +110,9 @@ void AFifteenPlayerController::OnSetDestinationReleased()
 		UAIBlueprintHelperLibrary::SimpleMoveToLocation(this, CachedDestination);
 		UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, FXCursor, CachedDestination, FRotator::ZeroRotator, FVector(1.f, 1.f, 1.f), true, true, ENCPoolMethod::None, true);
 
-		//UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, FXCursor, CachedDestination, FRotator::ZeroRotator, FVector(1.f, 1.f, 1.f), true, true, ENCPoolMethod::None, true);
+		//sphereComp->SetWorldLocation(CachedDestination, false);
 
-
+			
 	}
 
 	FollowTime = 0.f;
