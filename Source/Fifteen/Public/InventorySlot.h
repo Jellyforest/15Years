@@ -9,6 +9,11 @@
 /**
  * 
  */
+//DECLARE_DELEGATE(FButtonClickDelegate);
+//DECLARE_DELEGATE_OneParam(FButtonClickDelegate_OneParam, int32);
+//DECLARE_DYNAMIC_MULTICAST_DELEGATE(FTestDelegate);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FTestDelegate, int32, SlotClick);
+
 UCLASS()
 class FIFTEEN_API UInventorySlot : public UUserWidget
 {
@@ -24,4 +29,15 @@ public:
 	class UImage* itemImage;
 	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	class UTexture2D* pickupImage;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	int32 InventorySlot;
+	/*
+	UPROPERTY(BlueprintAssignable, Category = "Delegate")
+	FButtonClickDelegate FButtonClickDelegate;
+	UPROPERTY(BlueprintAssignable, Category = "Delegate")
+	FButtonClickDelegate_OneParam FButtonClickDelegate_OneParam
+	*/
+
+	UPROPERTY(EditAnywhere,BlueprintAssignable, Category = "Test")
+	FTestDelegate ButtonClicked;
 };

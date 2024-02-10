@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
 #include "InventoryStruct.h"
+#include "InventorySlot.h"
 #include "Inventory.generated.h"
 
 /**
@@ -22,12 +23,25 @@ public:
 	class UCanvasPanel* canvasPanel;
 	UPROPERTY(meta = (BindWidget))
 	class UImage* inventoryImage;
-	UPROPERTY(meta = (BindWidget))
-	class UOverlay* firstOverlay;
-	UPROPERTY(meta = (BindWidget))
-	class UButton* firstButton;
-	
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FInventoryStruct item;
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
+	TSubclassOf <class UInventorySlot> inventorySlot;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
+	class UInventorySlot* inventorySlot_0;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
+	class UInventorySlot* inventorySlot_1;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
+	class UInventorySlot* inventorySlot_2;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
+	class UInventorySlot* inventorySlot_3;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
+	class UInventorySlot* inventorySlot_4;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
+	class UInventorySlot* inventorySlot_5;
+	//¹è¿­TArray<TSubclassOf<UClass>>?
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	//TArray <InventorySlot> slotArray;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray <FInventoryStruct> itemArray;
 };

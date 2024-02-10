@@ -2,8 +2,12 @@
 
 
 #include "Inventory.h"
+#include "InventoryStruct.h"
+#include "InventorySlot.h"
+
 
 void UInventory::NativeConstruct()
 {
+	//slotArray[0] = inventorySlot_0;
 
 }

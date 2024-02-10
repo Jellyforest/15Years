@@ -5,5 +5,4 @@
 
 void UInventorySlot::NativeConstruct()
 {
-
 }
