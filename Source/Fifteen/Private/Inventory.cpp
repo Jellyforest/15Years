@@ -8,6 +8,10 @@
 
 void UInventory::NativeConstruct()
 {
+	//for (int32 i = 0; i < 6; i++)
+	//{
+
+	//}
 	//slotArray[0] = inventorySlot_0;
 
 }

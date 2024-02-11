@@ -23,9 +23,9 @@ protected:
 	virtual void NativeConstruct() override;
 
 public:
-	UPROPERTY(meta = (BindWidget))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
 	class UButton* itemButton;
-	UPROPERTY(meta = (BindWidget))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
 	class UImage* itemImage;
 	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	class UTexture2D* pickupImage;

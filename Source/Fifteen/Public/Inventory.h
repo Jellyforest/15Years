@@ -25,8 +25,8 @@ public:
 	class UImage* inventoryImage;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FInventoryStruct item;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
-	TSubclassOf <class UInventorySlot> inventorySlot;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
+	//TSubclassOf <class UInventorySlot> inventorySlot;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
 	class UInventorySlot* inventorySlot_0;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
@@ -40,8 +40,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
 	class UInventorySlot* inventorySlot_5;
 	//¹è¿­TArray<TSubclassOf<UClass>>?
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//TArray <InventorySlot> slotArray;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray <TSubclassOf<UInventorySlot>> slotArray;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray <FInventoryStruct> itemArray;
 };
