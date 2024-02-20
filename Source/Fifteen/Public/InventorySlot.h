@@ -27,8 +27,15 @@ public:
 	class UButton* itemButton;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
 	class UImage* itemImage;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
+	class UCanvasPanel* canvasPanel;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (BindWidget))
+	class UTextBlock* itemName;
+
 	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	class UTexture2D* pickupImage;
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	FText clickItemName;
 	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	int32 InventorySlot;
 	/*
@@ -40,4 +47,5 @@ public:
 
 	UPROPERTY(EditAnywhere,BlueprintAssignable, Category = "Test")
 	FTestDelegate ButtonClicked;
+
 };

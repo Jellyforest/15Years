@@ -15,3 +15,8 @@ void UInventory::NativeConstruct()
 	//slotArray[0] = inventorySlot_0;
 
 }
+void UInventory::RefreshInventory()
+{
+
+
+}
