@@ -42,6 +42,9 @@ public:
 	class UInventorySlot* inventorySlot_5;
 	*/
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool activateInventory;
+
 	//¹è¿­TArray<TSubclassOf<UClass>>?
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray <TSubclassOf<UInventorySlot>> slotArray;

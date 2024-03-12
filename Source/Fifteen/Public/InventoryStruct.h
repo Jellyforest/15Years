@@ -27,4 +27,10 @@ public:
 	class UTexture2D* itemImage;
 	UPROPERTY(EditAnywhere,BluePrintReadWrite)
 	FText clickItem;
+	UPROPERTY(EditAnywhere,BluePrintReadWrite)
+	class UStaticMeshComponent* itemMesh;
+	UPROPERTY(EditAnywhere,BluePrintReadWrite)
+	int32 itemNum;
+
+
 };

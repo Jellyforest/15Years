@@ -17,6 +17,6 @@ void UInventory::NativeConstruct()
 }
 void UInventory::RefreshInventory()
 {
-
+	activateInventory = true;
 
 }
